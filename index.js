@@ -122,7 +122,7 @@ function getAverageGoals(data) {
     }, 0); // // accumilating all the goals of the fifaData into 1 variable(reduceawayGoals)
 
     let averages = new Set() // created a set for average results to display
-    averages.add(`Home Team average: ${reducehomeGoals/data.length}`); // adding the average goals into the set by / by the length of the data
+    averages.add(`Home Team average: ${reducehomeGoals/data.length}`); // adding the average goals into the set and / by the length of the data
     averages.add(`Away Team average: ${reduceawayGoals/data.length}`)
 
 
