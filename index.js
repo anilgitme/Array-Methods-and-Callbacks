@@ -97,14 +97,14 @@ Parameters:
 
 function getWinnersByYear(getWinnerscb, getYearscb) {
     let wcWins = new Set();
-    let winYears = getWinnerscb(getFinals);
-    let countries = getYearscb(getFinals);
+    let winYears = getYearscb(getFinals); // an array of years of the finals
+    let countries = getWinnerscb(getFinals); // an array of countries of the finals
 
-    for (let i = 0; i < winYears.length; i++) {
-        let curStr = `In ${countries[i]}, ${winYears[i]} won the world cup!`
-        wcWins.add(curStr);
+    for (let i = 0; i < winYears.length; i++) { /// iterating through 1 of the array to use string interpolation on each element
+        let curStr = `In ${winYears[i]}, ${countries[i]} won the world cup!` //assigning a string with each iteration 
+        wcWins.add(curStr); //adding each string into my set for each iteration
     }
-    return wcWins;
+    return wcWins; //end of loop returns my set with the strings of the winners by year
 };
 
 console.log(getWinnersByYear(getWinners, getYears));
@@ -115,14 +115,14 @@ function getAverageGoals(data) {
 
     const reducehomeGoals = data.reduce((accumilator, currentValue) => {
         return accumilator + currentValue["Home Team Goals"];
-    }, 0);
+    }, 0); // accumilating all the goals of the fifaData into 1 variable(reducehomeGoals)
 
     const reduceawayGoals = data.reduce((accumilator, currentValue) => {
         return accumilator + currentValue["Away Team Goals"];
-    }, 0);
+    }, 0); // // accumilating all the goals of the fifaData into 1 variable(reduceawayGoals)
 
-    let averages = new Set()
-    averages.add(`Home Team average: ${reducehomeGoals/data.length}`);
+    let averages = new Set() // created a set for average results to display
+    averages.add(`Home Team average: ${reducehomeGoals/data.length}`); // adding the average goals into the set by / by the length of the data
     averages.add(`Away Team average: ${reduceawayGoals/data.length}`)
 
 
